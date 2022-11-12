@@ -21,7 +21,6 @@ import { join } from 'path'
 import { diskStorage } from 'multer'
 import { v4 as uuidv4 } from 'uuid'
 import { FileInterceptor } from '@nestjs/platform-express'
-import { Observable } from 'rxjs'
 
 export const storage = {
     storage: diskStorage({
@@ -71,7 +70,8 @@ export class CategoriesController {
         // return this.categoriesService.update(category?._id, {
         //     icon: file.filename,
         // })
-        return { imagePath: file.filename }
+
+        return { imagePath: `http://localhost:4000/categories/category-icon/${file.filename}` }
     }
 
     @Get('category-icon/:imagename')

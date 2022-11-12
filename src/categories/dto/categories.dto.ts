@@ -6,7 +6,4 @@ export class CategoriesDto {
 
     @IsString()
     icon: string
-
-    @IsString()
-    _id?: string
 }
