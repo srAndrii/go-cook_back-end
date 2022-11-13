@@ -24,6 +24,9 @@ export class Recipes {
 
     @Prop()
     time: string
+
+    @Prop()
+    img: string
 }
 
 export const RecipesSchema = SchemaFactory.createForClass(Recipes)

@@ -12,6 +12,10 @@ export class RecipesService {
         return this.recipesModel.find().exec()
     }
 
+    async getById(id: string): Promise<Recipes> {
+        return this.recipesModel.findById(id)
+    }
+
     async create(recipesDto: RecipesDto): Promise<Recipes> {
         const newRecipes = new this.recipesModel(recipesDto)
         return newRecipes.save()
@@ -23,13 +27,12 @@ export class RecipesService {
         })
     }
 
-    async byCategory(_id: Types.ObjectId): Promise<Recipes[]> {
+    async byCategory(id: string): Promise<Recipes[]> {
         const docs = await this.recipesModel
             .find({
-                'category._id': _id,
+                'category._id': id,
             })
             .exec()
-        console.log(_id)
 
         if (!docs) throw new NotFoundException('Recipes not  found')
 

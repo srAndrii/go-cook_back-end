@@ -18,4 +18,7 @@ export class RecipesDto {
 
     @IsString()
     time: string
+
+    @IsString()
+    img: string
 }
