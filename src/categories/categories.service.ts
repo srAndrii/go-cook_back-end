@@ -7,10 +7,7 @@ import { Observable } from 'rxjs'
 
 @Injectable()
 export class CategoriesService {
-    constructor(
-        @InjectModel(Categories.name)
-        private categoriesModel: Model<CategoriesDocument>
-    ) {}
+    constructor(@InjectModel(Categories.name) private categoriesModel: Model<CategoriesDocument>) {}
 
     async getAll(): Promise<Categories[]> {
         return this.categoriesModel.find().exec()
